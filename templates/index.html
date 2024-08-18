@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MediSum - Home</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        .popup {
+            display: none;
+            position: fixed;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            background: #fff;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+            padding: 20px;
+            z-index: 1000;
+        }
+        .popup.show {
+            display: block;
+        }
+        .popup-header {
+            font-size: 18px;
+            font-weight: bold;
+        }
+        .popup-body {
+            margin-top: 10px;
+        }
+        .popup-footer {
+            margin-top: 20px;
+            text-align: right;
+        }
+        .popup-button {
+            background-color: #007bff;
+            border: none;
+            color: white;
+            padding: 10px 20px; 
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">MedScribe AI</div>
+        <nav>
+            <a href="#">Home</a>
+            <a href="#services">Services</a>
+            <a href="#contact">Contact Us</a>
+            <a href="{{ url_for('login') }}" class="logout-btn">Log Out</a> 
+        </nav>
+    </header>
+    <!--                                Image and Description Section                 -->
+
+    <div class="home-container">
+        <div class="home-image">
+            <img src="{{ url_for('static', filename='img/doctor.png') }}" alt="Doctor">
+            <div class="home-description">
+                <h2>About MedScribe AI</h2>
+                <p>Medical Report Summarization: We process uploaded medical reports to provide a concise summary, including patient information, medical history, symptoms, diagnosis, treatment, recommendations, and current status.</p>
+                <a href="#services" class="explore-button">Explore</a>
+            </div>
+        </div>
+    </div>
+
+    <!--                               File Upload Section                            -->
+    <div id="services" class="services-container">
+        <h1>Upload Medical Record</h1>
+
+        <form id="upload-form" action="/upload" method="post" enctype="multipart/form-data">
+            <div class="upload-btn-container">
+                <div class="upload-card patient-id-card">
+                    <label for="patient-id">Patient ID:</label>
+                    <div class="custom-input">
+                        <input type="text" id="patient-id" name="patientId" placeholder="Enter Patient ID">
+                    </div>
+                </div>
+            </div>
+
+            <button type="submit" class="show-summary-button">Generate Summary</button>
+        </form>
+
+        <!--                          Summary and Download Section           -->
+        {% if summary %}
+        <div id="summary-container">
+            <div class="summary-card">
+                <h2>Summary</h2>
+                <p id="summary-text">{{ summary }}</p>
+            </div>
+            <div class="download-btn-container">
+                <a id="download-link" href="/download">
+                    <button class="custom-download-button">Download Summary</button>
+                </a>
+            </div>
+        </div>
+        {% else %}
+        <div id="summary-container" style="display: none;">
+            <div class="summary-card">
+                <h2>Summary</h2>
+                <p id="summary-text"></p>
+            </div>
+            <div class="download-btn-container">
+                <a id="download-link" href="/download">
+                    <button class="custom-download-button">Download Summary</button>
+                </a>
+            </div>
+        </div>
+        {% endif %}
+    </div>
+    
+    <!-- Cards Section -->
+    <div class="container">
+        <h2 class="card-section-title">Our Services</h2>
+        <div class="card__container">
+            <article class="card__article">
+                <img src="{{ url_for('static', filename='img/card_11.jpg') }}" alt="Card 1" class="card__img">
+                <div class="card__data">
+                    <h2 class="card__title">Medical Summaries</h2>
+                    <p class="card__description">Get concise medical report summaries to help you understand your health status.</p>
+                    <a href="#" class="card__button">Learn More</a>
+                </div>
+            </article>
+            <article class="card__article">
+                <img src="{{ url_for('static', filename='img/card_2.jpeg') }}" alt="Card 2" class="card__img">
+                <div class="card__data">
+                    <h2 class="card__title">Expert Analysis</h2>
+                    <p class="card__description">Access detailed analysis from medical experts for a thorough understanding.</p>
+                    <a href="#" class="card__button">Learn More</a>
+                </div>
+            </article>
+            <article class="card__article">
+                <img src="{{ url_for('static', filename='img/card_3.jpeg') }}" alt="Card 3" class="card__img">
+                <div class="card__data">
+                    <h2 class="card__title">Custom Reports</h2>
+                    <p class="card__description">Create custom reports tailored to your specific needs and requirements.</p>
+                    <a href="#" class="card__button">Learn More</a>
+                </div>
+            </article>
+        </div>
+    </div>
+    
+    <!-- Feedback Section -->
+    <div id="contact" class="contact-container">
+        <h1>Contact Us</h1>
+        <p>If you have any feedback or issues with the website, please comment below or contact us directly.</p>
+
+        <form action="/feedback" method="post">
+            <textarea name="feedback" rows="5" placeholder="Your feedback or issue..." required></textarea>
+            <button type="submit" class="custom-submit-button">Submit</button>
+        </form>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>For technical issues, contact us at <a href="mailto:Support@MedScribeAI.com">Support@MedScribeAI.com</a></p>
+        <div class="social-icons">
+            <a href="https://www.instagram.com" target="_blank" class="social-icon">
+                <i class="fab fa-instagram"></i>
+            </a>
+            <a href="https://www.facebook.com" target="_blank" class="social-icon">
+                <i class="fab fa-facebook"></i>
+            </a>
+            <a href="https://www.google.com" target="_blank" class="social-icon">
+                <i class="fab fa-google"></i>
+            </a>
+        </div>
+        <p>&copy; 2024 MedScribe AI. All rights reserved.</p>
+    </footer>
+
+
+    <div id="popup" class="popup">
+        <div class="popup-header" id="popup-title">Notification</div>
+        <div class="popup-body" id="popup-message"></div>
+        <div class="popup-footer">
+            <button class="popup-button" onclick="closePopup()">Close</button>
+        </div>
+    </div>
+
+    <script>
+        function showPopup(title, message) {
+            document.getElementById('popup-title').innerText = title;
+            document.getElementById('popup-message').innerText = message;
+            document.getElementById('popup').classList.add('show');
+        }
+
+        // Function to close the popup
+        function closePopup() {
+            document.getElementById('popup').classList.remove('show');
+        }
+
+        // Example usage of showPopup function
+        function handleJsonResponse(response) {
+            if (response.status === 400 || response.status === 404 || response.status === 500) {
+                response.json().then(data => {
+                    showPopup('Error', data.message);
+                });
+            } else {
+                showPopup('Success', 'Operation completed successfully!');
+            }
+        }
+
+        // Assuming you have a function to handle form submission
+    </script>
+</body>
+</html>

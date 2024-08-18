@@ -1,0 +1,154 @@
+/* Reset some basic elements */
+body, h2, form, input, button {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Basic styling for the body with a gradient background */
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #b2ebf2 0%, #ffffff 50%, #c8e6c9 100%);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0;
+}
+
+/* Header styling */
+header {
+    background-color: rgba(0, 123, 255, 0.8); /* Blue background for header with transparency */
+    color: white;
+    padding: 15px 20px;
+    position: relative;
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.logo {
+    font-size: 26px;
+    font-weight: bold;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin-left: 20px;
+    font-size: 18px;
+    transition: color 0.3s;
+}
+
+nav a:hover {
+    color: #cce5ff;
+}
+
+/* Main content styling */
+.main-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: calc(100vh - 80px); /* Full viewport height minus header height */
+    text-align: center;
+    padding: 20px;
+}
+
+/* Upload container styling */
+.upload-container {
+    max-width: 500px; /* Increased width for better layout */
+    width: 100%;
+    padding: 30px; /* Adjusted padding for a better balance */
+    background: rgba(255, 255, 255, 0.9); /* Maintained background color */
+    border-radius: 15px; /* Rounded corners */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1); /* Shadow for depth */
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s, box-shadow 0.3s; /* Added transition for shadow */
+}
+
+.upload-container:hover {
+    transform: translateY(-5px); /* Slight hover effect */
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15); /* Enhanced shadow on hover */
+}
+
+.upload-container h2 {
+    margin-bottom: 25px; /* Increased margin for spacing */
+    font-size: 28px; /* Slightly adjusted font size */
+    color: #007bff; /* Consistent color */
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+input {
+    margin-bottom: 15px; /* Adjusted margin for spacing */
+    padding: 12px; /* Adjusted padding for consistency */
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    font-size: 16px;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+input:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+button {
+    padding: 12px; /* Adjusted padding for consistency */
+    background-color: #007bff; /* Button color */
+    border: none;
+    border-radius: 10px;
+    color: white;
+    font-size: 16px; /* Adjusted font size */
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+button:hover {
+    background-color: #0056b3;
+    transform: scale(1.03); /* Slight scaling on hover */
+}
+
+/* Footer styling */
+footer {
+    background-color: #007bff;
+    color: white;
+    padding: 10px;
+    text-align: center;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+/* Footer text styling */
+footer p {
+    margin: 5px 0;
+    font-size: 14px;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .header-container {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    nav {
+        margin-top: 10px;
+    }
+
+    nav a {
+        display: block;
+        margin: 5px 0;
+    }
+}

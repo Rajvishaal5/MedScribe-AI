@@ -1,0 +1,240 @@
+/* Basic Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+}
+
+.container {
+    width: 60%;
+    margin: auto;
+    padding-top: 20px;
+}
+
+/* Header Styles */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: #4CAF50;
+    color: #fff;
+}
+
+header .logo {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+header nav a {
+    color: #fff;
+    text-decoration: none;
+    padding: 0 15px;
+    font-size: 18px;
+}
+
+header nav a:hover {
+    text-decoration: underline;
+}
+
+/* Image and Description Section */
+.home-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    height: 400px;
+    color: #fff;
+    text-align: left;
+}
+
+.home-description {
+    flex: 1;
+    margin-right: 20px;
+}
+
+.home-description h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+}
+
+.home-description p {
+    font-size: 1.5rem;
+    margin-bottom: 40px;
+}
+
+.home-icon {
+    flex: 1;
+    text-align: center;
+}
+
+.home-icon i {
+    color: #fff;
+    animation: fadeIn 3s ease-in-out;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .home-container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .home-description {
+        margin-right: 0;
+        margin-bottom: 20px;
+    }
+
+    .home-icon {
+        margin-top: 20px;
+    }
+}
+
+/* CTA Button */
+.cta-button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 15px 30px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    transition: background-color 0.3s ease;
+}
+
+.cta-button:hover {
+    background-color: #45a049;
+}
+
+/* Fade-In Animation */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Other Section Styles (like Services, Contact, etc.) */
+/* Keep the other section styles as they are from your previous CSS */
+
+/* Services Section */
+.services-container {
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.custom-file-input {
+    position: relative;
+    display: inline-block;
+    width: 200px;
+    height: 40px;
+    background-color: #f1f1f1;
+    border: 2px solid #4CAF50;
+    border-radius: 5px;
+    overflow: hidden;
+    cursor: pointer;
+    margin-bottom: 20px;
+}
+
+.custom-file-input input[type="file"] {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+}
+
+.custom-file-input span {
+    display: block;
+    line-height: 40px;
+    text-align: center;
+    color: #4CAF50;
+}
+
+.custom-upload-button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.custom-upload-button:hover {
+    background-color: #45a049;
+}
+
+.summary-card {
+    background: #fff;
+    color: #000;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+    display: inline-block;
+    text-align: left;
+    white-space: pre-wrap; /* Preserve whitespace and line breaks */
+    border: 1px solid #ddd; /* Optional: border for better visibility */
+}
+
+.custom-download-button {
+    background-color: #45a049;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.custom-download-button:hover {
+    background-color: #45a049;
+}
+
+/* Contact Section */
+.contact-container {
+    padding: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 2px solid #4CAF50;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.custom-submit-button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.custom-submit-button:hover {
+    background-color: #45a049;
+}
+
+/* Footer */
+footer {
+    background-color: #f1f1f1;
+    color: #333;
+    text-align: center;
+    padding: 10px 0;
+    margin-top: 20px;
+}
+
+/* Fade-In Animation */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}

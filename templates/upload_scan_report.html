@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload Scan Report</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/doc_report.css') }}">
+    <style>
+        /* Pop-up message styling */
+        .popup-message {
+            position: fixed;
+            top: 20px; /* Adjust as needed */
+            right: 20px; /* Adjust as needed */
+            padding: 15px;
+            background-color: #f8d7da; /* Red background for error messages */
+            color: #721c24; /* Dark red text color */
+            border: 1px solid #f5c6cb;
+            border-radius: 5px;
+            display: none; /* Hidden by default */
+            z-index: 1000; /* Ensure it's on top of other elements */
+            max-width: 300px;
+            width: 100%;
+            text-align: center;
+        }
+
+        .popup-message.success {
+            background-color: #d4edda; /* Green background for success messages */
+            color: #155724; /* Dark green text color */
+            border: 1px solid #c3e6cb;
+        }
+
+        .popup-message.show {
+            display: block; /* Show the pop-up */
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                Medscribe AI
+            </div>
+            <nav>
+                <a href="#home">Home</a>
+                <a href="#services">Services</a>
+                <a href="#contact">Contact Us</a>
+            </nav>
+        </div>
+    </header>
+
+    <div class="main-content">
+        <div class="upload-container">
+            <h2>Upload Scan Report</h2>
+            <form id="uploadForm" action="/upload_scan_report" method="post" enctype="multipart/form-data">
+                <input type="text" name="patientId" placeholder="Patient ID" required>
+                <input type="file" name="reportFile" required>
+                <button type="submit">Upload Scan Report</button>
+            </form>
+            <div id="message" class="popup-message"></div>
+        </div>
+    </div>
+
+    <footer>
+        <p>About Medscribe AI</p>
+        <p>Contact us: <a href="mailto:tharunsanjay28@gmail.com">tharunsanjay28@gmail.com</a></p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const form = document.getElementById('uploadForm');
+            const messageContainer = document.getElementById('message');
+
+            form.addEventListener('submit', async (event) => {
+                event.preventDefault(); // Prevent default form submission
+
+                const formData = new FormData(form);
+
+                try {
+                    const response = await fetch(form.action, {
+                        method: 'POST',
+                        body: formData
+                    });
+
+                    const result = await response.json();
+
+                    if (response.ok) {
+                        // Display success message
+                        messageContainer.textContent = result.message;
+                        messageContainer.className = 'popup-message success show';
+                    } else {
+                        // Display error message
+                        messageContainer.textContent = result.message;
+                        messageContainer.className = 'popup-message show';
+                    }
+
+                    // Hide the message after a few seconds
+                    setTimeout(() => {
+                        messageContainer.className = 'popup-message';
+                    }, 5000);
+                } catch (error) {
+                    // Display error message if fetch fails
+                    messageContainer.textContent = 'An error occurred. Please try again.';
+                    messageContainer.className = 'popup-message show';
+                    setTimeout(() => {
+                        messageContainer.className = 'popup-message';
+                    }, 5000);
+                }
+            });
+        });
+    </script>
+</body>
+</html>

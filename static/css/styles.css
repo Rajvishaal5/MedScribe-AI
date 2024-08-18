@@ -1,0 +1,438 @@
+/* Root Variables */
+:root {
+  --main-color: #4CAF50;
+  --secondary-color: #fff;
+  --text-color: #333;
+  --first-color: #007bff;
+  --background-color: #f1f1f1;
+  --border-radius: 5px;
+}
+
+/* Global Styles */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: linear-gradient(135deg, #f0f4f8, #e8eaf6);
+  color: var(--text-color);
+}
+
+/* Header */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  background-color: #21a1f1;
+  color: var(--secondary-color);
+}
+
+header .logo {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+header nav a {
+  color: var(--secondary-color);
+  margin-left: 20px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+header nav a:hover {
+  text-decoration: underline;
+}
+
+/* Log Out Button */
+.logout-btn {
+  background-color: #f44336; /* Red background color */
+  color: #fff; /* White text color */
+  border: none; /* Remove default border */
+  padding: 10px 20px; /* Padding inside the button */
+  border-radius: 5px; /* Rounded corners */
+  font-size: 16px; /* Font size */
+  font-weight: bold; /* Bold text */
+  cursor: pointer; /* Pointer cursor on hover */
+  transition: background-color 0.3s, transform 0.3s; /* Smooth transitions */
+  margin-left: 20px; /* Space between nav links and button */
+}
+
+.logout-btn:hover {
+  background-color: #d32f2f; /* Darker red on hover */
+  transform: scale(1.05); /* Slightly enlarge the button on hover */
+}
+
+.logout-btn:focus {
+  outline: none; /* Remove focus outline */
+}
+/* Home Section */
+.home-container {
+  min-height: 100vh;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.home-image {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  border-radius: 15px;
+  overflow: hidden;
+}
+
+.home-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.home-description {
+  position: absolute;
+  bottom: 200px; /* Adjust as needed */
+  left: 20px; /* Adjust as needed */
+  color: #0a0a0a; /* Text color */
+  padding: 15px;
+  font-family: 'Times New Roman', Times, serif;
+  font-size: x-large;
+  max-width: 600px;
+  animation: fadeIn 1s ease-out;
+}
+
+.home-description h2 {
+  margin: 0 0 10px 0;
+}
+
+.home-description p {
+  margin: 0;
+}
+
+.explore-button {
+  display: inline-block; /* Ensure the button behaves as a block element */
+  margin-top: 20px; /* Space above the button */
+  padding: 10px 20px; /* Padding inside the button */
+  font-size: 16px; /* Font size */
+  color: #fff; /* Text color */
+  background-color: #007bff; /* Button background color */
+  border: none; /* Remove default border */
+  border-radius: 5px; /* Smooth edges */
+  text-decoration: none; /* Remove underline */
+  text-align: center; /* Center text */
+  transition: background-color 0.3s, transform 0.3s; /* Smooth transitions */
+}
+.explore-button:hover {
+  background-color: #0056b3; /* Darker background on hover */
+  transform: scale(1.05); /* Slightly enlarge the button on hover */
+}
+
+/* Image and Description Section */
+@keyframes fadeIn {
+  from {
+      opacity: 0;
+      transform: translateY(20px); /* Start from below */
+  }
+  to {
+      opacity: 1;
+      transform: translateY(0); /* End at the original position */
+  }
+}
+/* Services Section */
+.services-container {
+  padding: 50px 20px;
+  text-align: center;
+   /* Light background for the section */
+}
+
+.services-container h1 {
+  margin-bottom: 40px;
+  font-size: 36px;
+  color: #333;
+}
+
+.upload-btn-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 50px;
+}
+
+.upload-card {
+  background-color: var(--secondary-color);
+  border: 1px solid #ddd;
+  border-radius: var(--border-radius);
+  padding: 20px;
+  width: 100%;
+  max-width: 200px;
+  box-shadow: var(--box-shadow);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.upload-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+}
+.patient-id-card {
+  width: 100%;
+  max-width: 500px;
+  height: 200px; /* Increased height for better aesthetics */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Deeper shadow for a more pronounced effect */
+  padding: 20px;
+  font-size: 20px; /* Slightly larger font size for better readability */
+  font-weight: bold;
+  text-align: center;
+  background: radial-gradient(circle at top right, #009688, #004d40); /* Radial gradient for a more dynamic look */
+  border-radius: var(--border-radius);
+  color: #fff; /* White text color for contrast */
+  position: relative; /* Positioning for pseudo-element */
+  overflow: hidden; /* To contain the pseudo-element */
+  border: 2px solid #ffffff; /* White border to enhance the card’s appearance */
+}
+
+.patient-id-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.25); /* Semi-transparent overlay for a frosted effect */
+  border-radius: var(--border-radius);
+  transform: scale(1.05); /* Slightly larger to cover the card */
+  z-index: 0; /* Place behind the content */
+  pointer-events: none; /* Ensure it does not interfere with content interactions */
+  animation: animateBackground 12s infinite linear; /* Smooth animation effect */
+}
+
+@keyframes animateBackground {
+  0% { background-position: -100% 0; }
+  100% { background-position: 100% 0; }
+}
+
+.custom-input {
+  margin-top: 20px; /* Increased margin for better spacing */
+}
+
+.custom-input input {
+  width: 80%; /* Increased width for better input field utilization */
+  padding: 15px;
+  border-radius: var(--border-radius);
+  border: 1px solid #ddd;
+  font-size: 16px;
+  background-color: #fff; /* White background for better readability */
+  color: #333; /* Dark text for better contrast */
+}
+
+.show-summary-button {
+  padding: 15px 30px;
+  border: none;
+  background-color: var(--main-color);
+  color: var(--secondary-color);
+  font-weight: bold;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.show-summary-button:hover {
+  background-color: #0056b3;
+  transform: scale(1.05);
+}
+
+/* Summary and Download Section */
+
+.summary-container {
+  margin-top: 40px;
+  text-align: center;
+}
+
+.summary-card {
+    background: #fff;
+    color: #000;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+    display: inline-block;
+    text-align: left;
+    font-family: Arial, Helvetica, sans-serif;
+    white-space: pre-wrap; /* Preserve whitespace and line breaks */
+    border: 1px solid #ddd; /* Optional: border for better visibility */
+}
+
+.download-btn-container {
+  margin-top: 20px;
+}
+
+.custom-download-button {
+  padding: 15px 30px;
+  border: none;
+  background-color: var(--main-color);
+  color: var(--secondary-color);
+  font-weight: bold;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.custom-download-button:hover {
+  background-color: #0eee06;
+  transform: scale(1.05);
+}
+
+/* Cards Section */
+.card__container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.card__article {
+  background-color: var(--secondary-color);
+  border: 1px solid #ddd;
+  border-radius: var(--border-radius);
+  width: 300px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card__article:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+.card__img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  transition: transform 0.3s;
+}
+
+.card__img:hover {
+  transform: scale(1.1);
+}
+
+.card__data {
+  padding: 20px;
+}
+
+.card__title {
+  margin-top: 0;
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: var(--main-color); /* Title color */
+}
+
+.card__description {
+  font-size: 15px;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.card__button {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: var(--main-color);
+  color: var(--secondary-color);
+  text-decoration: none;
+  border-radius: var(--border-radius);
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.card__button:hover {
+  background-color: #0056b3;
+  transform: scale(1.05);
+}
+/* feedback section */
+.contact-container {
+  padding: 50px 20px; /* Light blue background */
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.contact-container h1 {
+  margin-bottom: 20px;
+  color: #00796b; /* Darker teal color */
+}
+
+.contact-container p {
+  margin-bottom: 30px;
+  line-height: 1.6;
+  color: #004d40; /* Dark teal color */
+}
+
+.contact-container form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.contact-container form textarea {
+  width: 100%;
+  max-width: 500px;
+  padding: 15px;
+  border-radius: var(--border-radius);
+  border: 1px solid #00796b;
+  margin-bottom: 20px;
+  font-size: 16px;
+  resize: vertical;
+}
+
+.custom-submit-button {
+  padding: 10px 20px;
+  border: none;
+  background-color: #00796b;
+  color: var(--secondary-color);
+  font-weight: bold;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.custom-submit-button:hover {
+  background-color: #004d40; /* Darker teal on hover */
+  transform: scale(1.05);
+}
+
+/* Footer */
+footer {
+  background-color: #00796b; /* Dark teal background */
+  color: var(--secondary-color);
+  text-align: center;
+  padding: 20px 0;
+  margin-top: 20px;
+}
+
+footer p {
+  margin: 0;
+  font-size: 14px;
+}
+
+footer a {
+  color: var(--secondary-color);
+  text-decoration: none;
+  margin: 0 10px;
+  font-weight: bold;
+}
+
+footer a:hover {
+  text-decoration: underline;
+}
+
+
+.social-icons {
+  margin-top: 10px;
+}
+
+.social-icon {
+  color: var(--text-color);
+  margin: 0 5px;
+  font-size: 20px;
+  text-decoration: none;
+}
+
+.social-icon:hover {
+  color: var(--main-color);
+}
