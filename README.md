@@ -99,7 +99,7 @@ Welcome to the **Medical Report Summarization System**! This cutting-edge, web-b
 4. **📤 Summary Generation and Download:** Users can view the generated summary and download it as a polished PDF.
 
 ## 🤝 **Contribution and Contact**
-We welcome contributions from developers like you! Whether it’s a bug fix, feature enhancement, or new idea, feel free to open an issue or submit a pull request. Got questions? Reach out via [your-email@example.com](mailto:your-email@example.com).
+We welcome contributions from developers like you! Whether it’s a bug fix, feature enhancement, or new idea, feel free to open an issue or submit a pull request. Got questions? Reach out via [rajvishaal336@gmail.com](mailto:rajvishaal336@gmail.com).
 
 ## 📄 **License**
 This project is licensed under the MIT License. See the LICENSE file for more details.
